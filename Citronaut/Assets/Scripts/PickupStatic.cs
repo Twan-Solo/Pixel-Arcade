@@ -18,6 +18,7 @@ public class PickupStatic : MonoBehaviour
                 ScoreCounter.Instance.AddScore(scoreValue);
 
             Destroy(gameObject); // Collected by player
+            Debug.Log("Trigger hit by: " + other.name);
         }
 
         if (destroyOnEnemy && other.CompareTag("Enemy"))

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6474000606979523266}
   - component: {fileID: 759930531352398117}
   - component: {fileID: 2653299436550312973}
-  - component: {fileID: 5335299418383532040}
   m_Layer: 0
   m_Name: Blaster
   m_TagString: Untagged
@@ -115,17 +114,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5335299418383532040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8776005790760623775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089c5035730ec054bbcbd132982ce838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  projectilePrefab: {fileID: 1835133322707374097, guid: 3ff373cd0dc1ec646bb56d81747a5c3f, type: 3}
-  firePoint: {fileID: 0}

@@ -21,6 +21,7 @@ public class PickupSpawn : MonoBehaviour
                 ScoreCounter.Instance.AddScore(scoreValue);
 
             Destroy(gameObject);
+            Debug.Log("Trigger hit by: " + other.name);
         }
 
         if (destroyOnEnemy && other.CompareTag("Enemy"))

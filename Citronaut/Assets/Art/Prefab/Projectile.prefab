@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 2999546942222459184}
   - component: {fileID: 7532132289159265489}
   - component: {fileID: 6150618768882325076}
-  - component: {fileID: 23813756675890771}
+  - component: {fileID: -759230019531773700}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &8945774928365599307
 Transform:
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1835133322707374097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.42, y: 1.72151, z: -1.46228}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.42, y: 3.124, z: -1.46228}
+  m_LocalScale: {x: 0.528869, y: 0.35458097, z: 0.57574}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &23813756675890771
+--- !u!114 &-759230019531773700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +126,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a978b4d9caf767459be4b80a5fc6faa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 8
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  speed: 12
   lifetime: 5

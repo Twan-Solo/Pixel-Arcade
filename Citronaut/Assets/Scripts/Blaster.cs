@@ -2,26 +2,38 @@ using UnityEngine;
 
 public class Blaster : MonoBehaviour
 {
-    public GameObject projectilePrefab;  // Assign your Projectile prefab in Inspector
-    public Transform firePoint;          // Where projectiles spawn on the player
-
+    public GameObject projectilePrefab;
     private bool collected = false;
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if the player touched the Blaster and hasn't collected it yet
+        // 1. Only trigger if it's the player and we haven't picked it up yet
         if (!collected && other.CompareTag("Player"))
         {
-            collected = true;
-
-            // Give the player the ability to shoot using FireProjectile
             FireProjectile fireScript = other.GetComponent<FireProjectile>();
+
             if (fireScript != null)
             {
-                fireScript.EnableShooting(projectilePrefab, firePoint);
-            }
+                // FIX: Match your hierarchy name "FirePoint" exactly!
+                Transform playerMuzzle = other.transform.Find("FirePoint");
 
-            Destroy(gameObject); // Remove the Blaster from the scene
+                if (playerMuzzle != null)
+                {
+                    collected = true;
+                    Debug.Log("<color=green>[Success]</color> Found FirePoint! Projectiles will spawn at: " + playerMuzzle.position);
+
+                    // Hand off the prefab and the PLAYER'S persistent FirePoint
+                    fireScript.EnableShooting(projectilePrefab, playerMuzzle);
+
+                    // Remove the pickup from the world
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    // If this shows up, double-check that FirePoint isn't inside a 'Model' or 'Graphics' child
+                    Debug.LogError("<color=red>[Error]</color> Could not find 'FirePoint' as a direct child of " + other.name);
+                }
+            }
         }
     }
 }

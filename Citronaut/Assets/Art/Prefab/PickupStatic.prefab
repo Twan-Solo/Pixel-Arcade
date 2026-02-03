@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9023061198442079141}
   - component: {fileID: 5133930791097338745}
   - component: {fileID: 3393877591580130045}
-  - component: {fileID: 2152480638131266237}
   m_Layer: 0
   m_Name: PickupStatic
   m_TagString: Untagged
@@ -113,17 +112,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2152480638131266237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6490326768504753332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e5c76c236de34d4eb318d3bf8b02f65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  scoreValue: 1
-  destroyOnEnemy: 0

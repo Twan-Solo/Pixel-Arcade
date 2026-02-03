@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5893747185879819256}
   - component: {fileID: 5582372137927573503}
   - component: {fileID: 8837768862387781563}
-  - component: {fileID: 4062185256521243908}
   m_Layer: 0
   m_Name: PickupSpawn
   m_TagString: Untagged
@@ -113,18 +112,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4062185256521243908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2814752663778722031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad364e3a1b318e4fb8708fccbffc82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  lifetime: 5
-  scoreValue: 1
-  destroyOnEnemy: 1

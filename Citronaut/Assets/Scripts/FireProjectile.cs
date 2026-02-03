@@ -10,17 +10,15 @@ public class FireProjectile : MonoBehaviour
     public float shootCooldown = 0.5f;
     private float lastShotTime;
 
-    // InputAction reference
     private PlayerInput playerInput;
     private InputAction fireAction;
-
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         if (playerInput != null)
         {
-            fireAction = playerInput.actions["Fire"]; // Make sure you have a "Fire" action in your Input Actions
+            fireAction = playerInput.actions["Fire"];
         }
     }
 
@@ -29,6 +27,9 @@ public class FireProjectile : MonoBehaviour
         projectilePrefab = projectile;
         firePoint = point;
         canShoot = true;
+
+        // DEBUG: If 'point' is the Player object, this explains the ground spawning.
+        Debug.Log($"<color=cyan>[Setup]</color> Shooting enabled. Point Name: {point.name} | Position: {point.position}");
     }
 
     void Update()
@@ -44,10 +45,24 @@ public class FireProjectile : MonoBehaviour
 
     void Shoot()
     {
-        if (projectilePrefab == null || firePoint == null) return;
+        if (projectilePrefab == null || firePoint == null)
+        {
+            Debug.LogError("Shoot called but Projectile Prefab or FirePoint is null!");
+            return;
+        }
 
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Vector3 direction = transform.forward;
-        projectile.GetComponent<Projectile>().SetDirection(direction);
+        // BREADCRUMB: If the Y value in the console is 0, your firePoint is on the floor.
+        Debug.Log($"<color=orange>[Shoot]</color> Spawning at Y: {firePoint.position.y} (Object: {firePoint.name})");
+
+        // 1. Instantiate using the EXACT world position and rotation of the firePoint
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+        // 2. Use the firePoint's blue arrow (forward) for movement direction
+        Vector3 direction = firePoint.forward;
+
+        if (projectile.TryGetComponent<Projectile>(out Projectile projScript))
+        {
+            projScript.SetDirection(direction);
+        }
     }
 }
