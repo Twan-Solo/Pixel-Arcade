@@ -26,7 +26,7 @@ public class HealthCounter : MonoBehaviour
     {
         if (PlayerData.Instance != null && HealthText != null)
         {
-            HealthText.text = "Health: " + PlayerData.Instance.GetCurrentHealth();
+            HealthText.text = " " + PlayerData.Instance.GetCurrentHealth();
         }
     }
 
