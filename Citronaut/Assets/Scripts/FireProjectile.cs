@@ -52,18 +52,18 @@ public class FireProjectile : MonoBehaviour
             return;
         }
 
-        // Spawn projectile at fire point
+        // Spawn projectile
         GameObject projectile = Instantiate(
             projectilePrefab,
             firePoint.position,
             Quaternion.identity
         );
 
-        // X-AXIS ONLY DIRECTION (LEFT / RIGHT)
-        Vector3 direction = firePoint.right;
-        direction.y = 0f;
-        direction.z = 0f;
-        direction.Normalize();
+        // Determine facing direction from player scale
+        float facingDirection = Mathf.Sign(transform.localScale.x);
+
+        // Fire strictly left or right
+        Vector3 direction = Vector3.right * facingDirection;
 
         if (projectile.TryGetComponent<Projectile>(out Projectile proj))
         {
@@ -74,4 +74,5 @@ public class FireProjectile : MonoBehaviour
             Debug.LogWarning("Projectile prefab is missing a Projectile script!");
         }
     }
+
 }

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 985778528270902953}
   - component: {fileID: 4302255801317659580}
+  - component: {fileID: -421814169813500041}
+  - component: {fileID: 374482045926554444}
   m_Layer: 0
   m_Name: CoinStatic
   m_TagString: Untagged
@@ -27,10 +29,9 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -113.51, y: 2, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 5, y: 5, z: 7.5725}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8706641039363562579}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4302255801317659580
@@ -92,78 +93,38 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1001 &5181210929179057726
-PrefabInstance:
+--- !u!65 &-421814169813500041
+BoxCollider:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 985778528270902953}
-    m_Modifications:
-    - target: {fileID: 404971076798133909, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_Name
-      value: PickupStatic 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.24801493
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.24801493
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.27119812
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.014
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4691362259398925844, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
---- !u!4 &8706641039363562579 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4554098026637722221, guid: c3bc479d63263c0458e29903ca935a2d, type: 3}
-  m_PrefabInstance: {fileID: 5181210929179057726}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550762698810534065}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.32, y: 0.32, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &374482045926554444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550762698810534065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5c76c236de34d4eb318d3bf8b02f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupStatic
+  scoreValue: 1
+  destroyOnEnemy: 0

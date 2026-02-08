@@ -25,14 +25,31 @@ public class ItemSpawner : MonoBehaviour
         if (spawnOnlyOnce && hasSpawned) return;
         if (itemPrefab == null || myCollider == null) return;
 
-        // Top of THIS collider in world space
-        Vector3 spawnPosition = new Vector3(
-            myCollider.bounds.center.x,
-            myCollider.bounds.max.y,
-            myCollider.bounds.center.z
-        );
+        // 1. Spawn item temporarily above
+        Vector3 tempSpawnPos = myCollider.bounds.center + Vector3.up * 5f;
+        GameObject item = Instantiate(itemPrefab, tempSpawnPos, Quaternion.identity);
 
-        Instantiate(itemPrefab, spawnPosition, transform.rotation);
+        // 2. Get the REAL collider from the spawned item
+        Collider itemCollider = item.GetComponent<Collider>();
+
+        if (itemCollider != null)
+        {
+            float itemHalfHeight = itemCollider.bounds.extents.y;
+
+            // 3. Place item exactly on top
+            Vector3 finalPosition = new Vector3(
+                myCollider.bounds.center.x,
+                myCollider.bounds.max.y + itemHalfHeight,
+                myCollider.bounds.center.z
+            );
+
+            item.transform.position = finalPosition;
+        }
+        else
+        {
+            Debug.LogWarning("Spawned item has no collider!");
+        }
+
         hasSpawned = true;
     }
 }

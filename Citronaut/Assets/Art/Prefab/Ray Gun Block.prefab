@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1643444423168574231}
   - component: {fileID: 1708719392331156753}
   - component: {fileID: 1435167959220507446}
+  - component: {fileID: -7436865987735716367}
   m_Layer: 0
   m_Name: Ray Gun Block
   m_TagString: Untagged
@@ -113,6 +114,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7436865987735716367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319695131188027970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd51a97fa3d5d53419f64db090d2fee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
+  itemPrefab: {fileID: 634211144737631424, guid: 6f45e763a2235db46b7816d38cfa9f06, type: 3}
+  spawnOnlyOnce: 1
 --- !u!1001 &7905296501089428561
 PrefabInstance:
   m_ObjectHideFlags: 0
