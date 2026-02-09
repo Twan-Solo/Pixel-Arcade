@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c4c6716d3263e469153dd84eb4e504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeftMoveingEnemy
-  speed: 2
+  speed: 3
   moveDistance: 5
   startLeft: 1
   visual: {fileID: 0}
