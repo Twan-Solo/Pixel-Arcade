@@ -34954,6 +34954,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPlaceholder
       objectReference: {fileID: 0}
+    - target: {fileID: 5525402931692716625, guid: d9ec2e048ff1eab45bf79603f9c7847d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525402931692716625, guid: d9ec2e048ff1eab45bf79603f9c7847d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525402931692716625, guid: d9ec2e048ff1eab45bf79603f9c7847d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7366286319651648900, guid: d9ec2e048ff1eab45bf79603f9c7847d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -72.55
