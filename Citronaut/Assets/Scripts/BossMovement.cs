@@ -6,110 +6,62 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveDistance = 3f;     // how far left/right to move
-    public float moveSpeed = 2f;        // movement speed
-    public float actionCooldown = 1.5f; // how often it chooses a new action
+    public float speed = 2f;               // movement speed
+    public float moveDistance = 5f;        // how far left/right from start
+    public bool startLeft = true;          // initial direction
 
     [Header("Hop Settings")]
-    public float hopHeight = 1f;        // how high the hop goes
-    public float hopDuration = 0.25f;   // time to reach top (full up+down = 0.5s)
+    public float maxHopHeight = 1f;        // max random hop height
+    public float hopChancePerSecond = 0.1f;// chance per second to hop
 
     private Rigidbody rb;
-    private bool isActing = false;
+    private Vector3 startPosition;
+    private Vector3 targetPosition;
+    private bool movingLeft;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
-        // Rigidbody setup
-        rb.constraints = RigidbodyConstraints.FreezeRotation;  // prevents tipping
-        rb.interpolation = RigidbodyInterpolation.Interpolate; // smooth movement
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous; // prevent tunneling
+        rb.isKinematic = false;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void Start()
     {
-        InvokeRepeating(nameof(ChooseAction), 1f, actionCooldown);
+        startPosition = rb.position;
+
+        // Set initial direction
+        movingLeft = startLeft;
+        targetPosition = movingLeft ? startPosition + Vector3.left * moveDistance
+                                   : startPosition + Vector3.right * moveDistance;
     }
 
-    void ChooseAction()
+    private void FixedUpdate()
     {
-        if (isActing) return;
+        // Move towards target
+        Vector3 moveDir = (targetPosition - rb.position).normalized;
+        rb.MovePosition(rb.position + moveDir * speed * Time.fixedDeltaTime);
 
-        int action = Random.Range(0, 3); // 0 = left, 1 = right, 2 = hop
-
-        switch (action)
+        // Switch direction if reached target
+        if (Vector3.Distance(rb.position, targetPosition) < 0.05f)
         {
-            case 0:
-                StartCoroutine(Move(Vector3.left));
-                break;
-            case 1:
-                StartCoroutine(Move(Vector3.right));
-                break;
-            case 2:
-                StartCoroutine(Hop());
-                break;
+            movingLeft = !movingLeft;
+            targetPosition = movingLeft ? startPosition + Vector3.left * moveDistance
+                                        : startPosition + Vector3.right * moveDistance;
+        }
+
+        // Random hop if grounded
+        if (Random.value < hopChancePerSecond * Time.fixedDeltaTime && IsGrounded())
+        {
+            float hopHeight = Random.Range(0.3f, maxHopHeight);
+            rb.AddForce(Vector3.up * Mathf.Sqrt(2f * 9.81f * hopHeight), ForceMode.VelocityChange);
         }
     }
 
-    IEnumerator Move(Vector3 direction)
+    // Check if boss is on the ground
+    private bool IsGrounded()
     {
-        isActing = true;
-
-        Vector3 startPos = rb.position;
-        Vector3 targetPos = startPos + direction * moveDistance;
-        Vector3 moveDir = (targetPos - startPos).normalized;
-
-        while (Vector3.Distance(rb.position, targetPos) > 0.05f)
-        {
-            // Check for wall ahead using Raycast
-            if (!Physics.Raycast(rb.position, moveDir, 0.6f))
-            {
-                rb.MovePosition(rb.position + moveDir * moveSpeed * Time.fixedDeltaTime);
-            }
-            else
-            {
-                break; // hit a wall, stop moving
-            }
-
-            yield return new WaitForFixedUpdate();
-        }
-
-        isActing = false;
-    }
-
-    IEnumerator Hop()
-    {
-        isActing = true;
-
-        Vector3 startPos = rb.position;
-        Vector3 topPos = startPos + Vector3.up * hopHeight;
-
-        // Move up
-        float timer = 0f;
-        while (timer < hopDuration)
-        {
-            Vector3 newPos = Vector3.Lerp(startPos, topPos, timer / hopDuration);
-            rb.MovePosition(newPos);
-            timer += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
-        }
-
-        rb.MovePosition(topPos);
-
-        // Move down
-        timer = 0f;
-        while (timer < hopDuration)
-        {
-            Vector3 newPos = Vector3.Lerp(topPos, startPos, timer / hopDuration);
-            rb.MovePosition(newPos);
-            timer += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
-        }
-
-        rb.MovePosition(startPos);
-
-        isActing = false;
+        return Physics.Raycast(rb.position, Vector3.down, 0.6f);
     }
 }
-
