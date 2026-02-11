@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; // Required for new Input System
 
 public class PlayerData : MonoBehaviour
 {
@@ -27,6 +28,21 @@ public class PlayerData : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        // Escape key handling for new Input System
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            string menuScene = "MainMenu";
+
+            if (!string.IsNullOrEmpty(mainMenuSceneName))
+                menuScene = mainMenuSceneName;
+
+            Debug.Log("Escape pressed: loading Main Menu -> " + menuScene);
+            SceneManager.LoadScene(menuScene);
         }
     }
 
