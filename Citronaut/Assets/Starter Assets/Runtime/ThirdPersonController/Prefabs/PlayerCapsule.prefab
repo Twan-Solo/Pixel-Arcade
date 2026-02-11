@@ -199,7 +199,7 @@ MonoBehaviour:
   MoveSpeed: 4
   SprintSpeed: 6
   SpeedChangeRate: 10
-  JumpHeight: 2
+  JumpHeight: 3
   Gravity: -15
   canMove: 0
   Grounded: 1
