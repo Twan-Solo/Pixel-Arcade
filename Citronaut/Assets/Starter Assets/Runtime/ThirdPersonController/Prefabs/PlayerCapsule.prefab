@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputLock
   controller: {fileID: 1925873226565265913}
   input: {fileID: 2468714030164847400}
-  countdownTime: 5
+  countdownTime: 0
   countdownText: {fileID: 0}
 --- !u!136 &2491018749669885910
 CapsuleCollider:
