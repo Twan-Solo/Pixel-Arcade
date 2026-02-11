@@ -152,7 +152,7 @@ MonoBehaviour:
   creditsText: {fileID: 2077236908}
   scrollSpeed: 50
   startY: -300
-  endY: 1200
+  endY: 1400
   bounceAnimator: {fileID: 1442338930}
   bounceObject: {fileID: 1442338928}
   bounceTriggerName: PlayBounce
