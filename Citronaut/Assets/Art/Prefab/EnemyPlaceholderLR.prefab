@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 279445307476691657}
   m_Layer: 0
   m_Name: EnemyPlaceholderLR
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,8 +153,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9999999, y: 0.9999999, z: 0.40740177}
-  m_Center: {x: 0, y: 0.21133336, z: 0.00986014}
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.8124313}
+  m_Center: {x: 0, y: 0.21133338, z: -0.05769111}
 --- !u!114 &279445307476691657
 MonoBehaviour:
   m_ObjectHideFlags: 0
