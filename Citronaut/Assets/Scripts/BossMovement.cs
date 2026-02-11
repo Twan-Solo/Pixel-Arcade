@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public class BossMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -10,9 +12,20 @@ public class BossMovement : MonoBehaviour
 
     [Header("Hop Settings")]
     public float hopHeight = 1f;        // how high the hop goes
-    public float hopDuration = 0.25f;   // time to reach top (so full up+down = 0.5s)
+    public float hopDuration = 0.25f;   // time to reach top (full up+down = 0.5s)
 
+    private Rigidbody rb;
     private bool isActing = false;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        // Rigidbody setup
+        rb.constraints = RigidbodyConstraints.FreezeRotation;  // prevents tipping
+        rb.interpolation = RigidbodyInterpolation.Interpolate; // smooth movement
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous; // prevent tunneling
+    }
 
     private void Start()
     {
@@ -43,13 +56,23 @@ public class BossMovement : MonoBehaviour
     {
         isActing = true;
 
-        Vector3 startPos = transform.position;
+        Vector3 startPos = rb.position;
         Vector3 targetPos = startPos + direction * moveDistance;
+        Vector3 moveDir = (targetPos - startPos).normalized;
 
-        while (Vector3.Distance(transform.position, targetPos) > 0.05f)
+        while (Vector3.Distance(rb.position, targetPos) > 0.05f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            yield return null;
+            // Check for wall ahead using Raycast
+            if (!Physics.Raycast(rb.position, moveDir, 0.6f))
+            {
+                rb.MovePosition(rb.position + moveDir * moveSpeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                break; // hit a wall, stop moving
+            }
+
+            yield return new WaitForFixedUpdate();
         }
 
         isActing = false;
@@ -59,35 +82,34 @@ public class BossMovement : MonoBehaviour
     {
         isActing = true;
 
-        Vector3 startPos = transform.position;
+        Vector3 startPos = rb.position;
         Vector3 topPos = startPos + Vector3.up * hopHeight;
 
         // Move up
         float timer = 0f;
         while (timer < hopDuration)
         {
-            transform.position = Vector3.Lerp(startPos, topPos, timer / hopDuration);
-            timer += Time.deltaTime;
-            yield return null;
+            Vector3 newPos = Vector3.Lerp(startPos, topPos, timer / hopDuration);
+            rb.MovePosition(newPos);
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
 
-        // Ensure exact top position
-        transform.position = topPos;
+        rb.MovePosition(topPos);
 
         // Move down
         timer = 0f;
         while (timer < hopDuration)
         {
-            transform.position = Vector3.Lerp(topPos, startPos, timer / hopDuration);
-            timer += Time.deltaTime;
-            yield return null;
+            Vector3 newPos = Vector3.Lerp(topPos, startPos, timer / hopDuration);
+            rb.MovePosition(newPos);
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
 
-        // Ensure exact start position
-        transform.position = startPos;
+        rb.MovePosition(startPos);
 
         isActing = false;
     }
 }
-
 
