@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5c76c236de34d4eb318d3bf8b02f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupStatic
-  scoreValue: 1
+  scoreValue: 5
   destroyOnEnemy: 0

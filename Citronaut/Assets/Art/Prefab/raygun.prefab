@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4107924867526311919}
   - component: {fileID: 1453934400747368508}
+  - component: {fileID: 6727120660207261700}
+  - component: {fileID: 418846665311448329}
   m_Layer: 0
   m_Name: raygun
   m_TagString: Untagged
@@ -91,3 +93,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!65 &6727120660207261700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752781208445193510}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.64, y: 0.6399999, z: 0.2}
+  m_Center: {x: 0, y: 0.000000059604645, z: 0}
+--- !u!114 &418846665311448329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752781208445193510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089c5035730ec054bbcbd132982ce838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Blaster
+  projectilePrefab: {fileID: 1835133322707374097, guid: 3ff373cd0dc1ec646bb56d81747a5c3f, type: 3}

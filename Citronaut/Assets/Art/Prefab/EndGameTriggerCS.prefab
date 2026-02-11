@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240c9f69abb849f4095ca0f455419c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEnding
-  mainMenuSceneName: MainMenu
-  transitionDelay: 5
+  creditsSceneName: Credits
+  transitionDelay: 2
 --- !u!114 &8031207147758817014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,11 +116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6545316225155404784, guid: 6dca85b15b3c87c41bc414d86cb46d27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11386208
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 6545316225155404784, guid: 6dca85b15b3c87c41bc414d86cb46d27, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2551374
+      value: 0.043
       objectReference: {fileID: 0}
     - target: {fileID: 6545316225155404784, guid: 6dca85b15b3c87c41bc414d86cb46d27, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1066,11 +1066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3763452888977403121, guid: 10dc788b608ba6847bc6acc8a335de5b, type: 3}
       propertyPath: 'levels.Array.data[0]'
-      value: Test_Level
+      value: Level_1
       objectReference: {fileID: 0}
     - target: {fileID: 3763452888977403121, guid: 10dc788b608ba6847bc6acc8a335de5b, type: 3}
       propertyPath: 'levels.Array.data[1]'
-      value: Test_Level2
+      value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 3763452888977403121, guid: 10dc788b608ba6847bc6acc8a335de5b, type: 3}
       propertyPath: 'levels.Array.data[2]'

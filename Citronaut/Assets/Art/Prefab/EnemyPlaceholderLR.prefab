@@ -170,7 +170,7 @@ MonoBehaviour:
   dealsDamageToPlayer: 1
   damageToPlayer: 10
   isDestructible: 1
-  hitsToDestroy: 3
+  hitsToDestroy: 1
   vulnerableToTag: PlayerAttack
   destroyAttackerOnHit: 0
 --- !u!1 &5590677071482625573

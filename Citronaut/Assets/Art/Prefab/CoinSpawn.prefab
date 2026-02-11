@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupSpawn
   lifetime: 5
-  scoreValue: 1
-  destroyOnEnemy: 1
+  scoreValue: 10
+  destroyOnEnemy: 0

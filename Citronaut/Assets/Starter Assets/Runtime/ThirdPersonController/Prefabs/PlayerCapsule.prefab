@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29811323}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -198,9 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 4
   SprintSpeed: 6
-  RotationSmoothTime: 0.12
   SpeedChangeRate: 10
-  JumpHeight: 1.2
+  JumpHeight: 2
   Gravity: -15
   canMove: 0
   Grounded: 1
@@ -210,9 +209,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   CinemachineCameraTarget: {fileID: 6074239116653777065}
-  TopClamp: 70
-  BottomClamp: -30
-  CameraAngleOverride: 0
   LockCameraPosition: 0
 --- !u!114 &7292828519420468114
 MonoBehaviour:
@@ -580,6 +576,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bfc52941e39347799ce8c5353d213cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3bfc52941e39347799ce8c5353d213cf, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bfc52941e39347799ce8c5353d213cf, type: 3}

@@ -902,9 +902,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game Title \nCitronaut Defender\n\nCharacter Artist\nMatthew Beal\n\nProp
-    Artist\nPatty Farinas\n\nProp Artist\nAbiola Milord\n\nLevel Designer\nTriston
-    Passmore\n\nCharacter Artist\nShreya Patel\n\nJack Of All Trades\nAntoine Solomon\n\n\n"
+  m_text: "Game Title \nSuper Citronaut\n\nCharacter Artist/Animator\nMatthew Beal\n\nEnviroment/Prop
+    Artist\nPatty Farinas\n\nEnviroment/Prop Artist\nAbiola Milord\n\nLevel Designer\nTriston
+    Passmore\n\nCharacter Artist/Animator\nShreya Patel\n\nJack Of All Trades\nAntoine
+    Solomon\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
   m_sharedMaterial: {fileID: 1260715531048141648, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}

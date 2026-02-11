@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularDamageDealer
   dealsDamageToPlayer: 1
-  damageToPlayer: 1
+  damageToPlayer: 20
   isDestructible: 1
-  hitsToDestroy: 3
+  hitsToDestroy: 5
   vulnerableToTag: PlayerAttack
   destroyAttackerOnHit: 0
 --- !u!65 &164777682499158541
